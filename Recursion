@@ -1,0 +1,32 @@
+function isPalindrome(word) {
+    // Stop condition: an empty word or a word containing a single character is a palindrome
+    if (word.length <= 1) {
+        return true;
+    }
+
+    // Initialize counters
+    let start = 0;
+    let end = word.length - 1;
+
+    // Loop until start counter is less than end counter
+    while (start < end) {
+        // Compare characters located at the ends of the word
+        if (word[start] !== word[end]) {
+            return false; // Stop if characters are different
+        }
+        
+        // Move counters towards the center of the word
+        start++;
+        end--;
+    }
+
+    // If the loop completes without finding any differences, the word is a palindrome
+    return true;
+}
+
+// Test cases
+console.log(isPalindrome("radar")); // Output: true
+console.log(isPalindrome("level")); // Output: true
+console.log(isPalindrome("hello")); // Output: false
+console.log(isPalindrome("")); // Output: true (empty string is a palindrome)
+console.log(isPalindrome("a")); // Output: true (single character is a palindrome)
